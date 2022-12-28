@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styleMessages.css">
+    </head>
+    <body onload="init();">
+        <header>
+            <div>
+                <img id="userPict" src="../staticFiles/Loading_icon.gif">
+                <h2 id="userName">Загрузка...</h2>
+            </div>
+            
+            <div id="headerContainer">
+                <h1>Диалоги</h1>
+                <button onclick="createNewDialog();">+</button>
+            </div>
+            <button onclick="logout();">Выйти</button>
+        </header>
+
+        <main>
+            <div id="dialogContainer">
+                <img id="spinner" src="../staticFiles/Loading_icon.gif" alt="">
+            </div>
+        </main>
+
+        <script src="scriptMessages.js"></script>
+    </body>
+</html>

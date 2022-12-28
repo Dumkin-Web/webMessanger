@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styleAuth.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    </head>
+    <body onload="init();">
+        <header>
+            <h1>Corp messenger</h1>
+        </header>
+        <form id="form">
+            <h1>Авторизация</h1>
+            <p>Номер телефона</p>
+            <input id="phoneInput" type="tel" name="phone" oninput="phoneHandler();" placeholder="9824753210">
+            <p>Пароль</p>
+            <input id="passwordInput" type="password" name="password" placeholder="Password">
+            <div>
+                <a href="../reg/index.html">Нет аккаунта?</a>
+                <button id="sendButton" type="submit">Войти</button>
+            </div>
+        </form>
+
+        <script src="scriptAuth.js"></script>
+    </body>
+</html>

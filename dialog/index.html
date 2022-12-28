@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styleDialog.css">
+    </head>
+    <body onload="init();">
+        <header>
+            <div>
+                <img id="userPict" src="../staticFiles/Loading_icon.gif">
+                <h2 id="userName">Загрузка...</h2>
+            </div>
+            <h2 style="align-self: center;">Чат</h2>
+            <button onclick="logout();">Выйти</button>
+        </header>
+
+        <main>
+            <div id="dialogHeader">
+                <button onclick="goBack();">Назад</button>
+                <p>Загрузка...</p>
+                <img src="../staticFiles/Loading_icon.gif">
+            </div>
+            <div id="onemoreContainer">
+                <div id="dialogContainer">
+                    
+                </div>
+            </div>
+            <form>
+                <textarea name="message" id="message" placeholder="Сообщение..."></textarea>
+                <button type="submit">↑</button>
+            </form>
+        </main>
+
+        <script src="scriptDialog.js"></script>
+    </body>
+</html>

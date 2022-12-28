@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styleReg.css">
+        <script src="scriptReg.js"></script>
+        <meta charset="utf-8">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    </head>
+    <body onload="init()">
+        <form>
+            <h1>Регистрация</h1>
+
+            <div id="pict_upload">
+                <input type="file" id="pictUploadButton" name="imageBlob" accept="image/jpeg, image/png, image/jpg" onchange="onUploadPicture();">
+                <img id="image" onclick="pictUpload();">
+                <p id="plus"  onclick="pictUpload();">+</p>
+            </div>
+
+            <p>Номер телефона</p>
+            <input type="tel" name="phone" placeholder="9824753210">
+
+            <p>Имя</p>
+            <input type="text" name="name" placeholder="Иван">
+
+            <p>Фамилия</p>
+            <input type="text" name="surname" placeholder="Иванов">
+
+            <p>Пароль</p>
+            <input type="password" name="password" placeholder="Password">
+
+            <p>Пароль повторно</p>
+            <input type="password" name="passwordRepeat" placeholder="Password">
+
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+    </body>
+</html>

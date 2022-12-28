@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+        <title>Думкин Никита ДЗ 1</title>
+    </head>
+    <body>
+        <h1>Web-приложение для обмена сообщениями между сотрудниками компании "Corp messenger"</h1>
+
+        <!-- Аннотация -->
+        <details>
+          <summary>Аннотация</summary>
+          <p><b>Назначение:</b><br>
+          &emsp;Решение проблемы коммуникации сотрудников компании<br>
+          <b>Целевая аудитория:</b><br>
+          &emsp;Сотрудники компании</p>
+        </details>
+
+        <!-- Варианты использования -->
+        <details>
+          <summary>Варианты использования</summary>
+          <br>
+          <img src="staticFiles/useCase.png" usemap="#useCase">
+        </details>
+
+        <!-- Сценарии использования -->
+        <details>
+          <summary>Сценарии использования</summary>
+          <p><strong>С</strong> &ndash; сотрудник.
+             <br>
+             <strong>ВП</strong> &ndash; wеб-приложение.</p>
+    
+          <p><strong>Регистрация аккаунта</strong></p>
+          <ol id="c1">
+            <li><b>С</b> переходит на страницу регистрации.</li>
+            <li><b>ВП</b> отображает форму регистрации.</li>
+            <li><b>С</b> заполняет поля регистрации.</li>
+            <li><b>С</b> загружает изображение профиля.</li>
+            <li><b>С</b> нажимает "Зарегистрироваться"</li>
+            <li><b>ВП</b> отправляет запрос на сервер с информацией, указанной С.</li>
+            <li><b>ВП</b> получает JWT токен в ответе сервера.</li>
+            <li><b>ВП</b> сохраняет токен и номер телефона сотрудника.</li>
+            <li><b>ВП</b> перенаправляет сотрудника на страницу со списком диалогов.</li>
+          </ol>
+          
+          <p><strong>Авторизация в аккаунт</strong></p>
+          <ol id="c2">
+            <li><b>С</b> переходит на страницу авторизации.</li>
+            <li><b>ВП</b> отображает форму авторизации.</li>
+            <li><b>С</b> заполняет поля авторизации.</li>
+            <li><b>Р</b> нажимает "Войти".</li>
+            <li><b>ВП</b> отправляет запрос на сервер с информацией, указанной С.</li>
+            <li><b>ВП</b> получает JWT токен в ответе сервера.</li>
+            <li><b>ВП</b> сохраняет токен и номер телефона сотрудника.</li>
+            <li><b>ВП</b> перенаправляет сотрудника на страницу со списком диалогов.</li>
+          </ol>
+          
+          <p><strong>Просмотр списка чатов<</strong></p>
+          <ol id="c3">
+            <li><b>С</b> переходит на страницу списка чатов</li>
+            <li><b>ВП</b> отображает список активных диалогов.</li>
+          </ol>
+          
+          <p><strong>Создание чата</strong></p>
+          <ol id="c4">
+            <li><b>С</b> переходит на страницу списка чатов</li>
+            <li><b>ВП</b> отображает список активных диалогов.</li>
+            <li><b>С</b> нажимает на "+".</li>
+            <li><b>ВП</b> отображает форму с полем номера телефона.</li>
+            <li><b>С</b> вводит номер телефона.</li>
+            <li><b>С</b> нажимает "Ок".</li>
+            <li><b>ВП</b> скрывает форму.</li>
+            <li><b>ВП</b> отправляет информацию на сервер.</li>
+            <li><b>ВП</b> получает ответ от сервера.</li>
+            <li><b>ВП</b> отображает новый список диалогов/отображает всплывающее сообщение об ошибке.</li>
+          </ol>
+          
+          <p><strong>Просмотр сообщений</strong></p>
+          <ol id="c5">
+            <li><b>С</b> нажимает на диалог.</li>
+            <li><b>ВП</b> перемещает С на страницу диалога.</li>
+            <li><b>ВП</b> отображает список сообщений диалога.</li>
+          </ol>
+          
+          <p><strong>Отправка сообщения</strong></p>
+          <ol id="c6">
+            <li><b>С</b> нажимает на диалог.</li>
+            <li><b>ВП</b> перемещает С на страницу диалога.</li>
+            <li><b>ВП</b> отображает список сообщений диалога.</li>
+            <li><b>С</b> вводит текст сообщения в поле ввода сообщения.</li>
+            <li><b>С</b> нажимает «↑».</li>
+            <li><b>ВП</b> отправляет данные на сервер.</li>
+            <li><b>ВП</b> получает ответ от сервера.</li>
+            <li><b>ВП</b> отображает новое сообщение.</li>
+          </ol>
+          
+          <p><strong>Выход из аккаунта</strong></p>
+          <ol id="c7">
+            <li><b>С</b> нажимает «Выйти».</li>
+            <li><b>ВП</b> очищает хранилище данных.</li>
+            <li><b>ВП</b> перемещает С на страницу авторизации.</li>
+          </ol>
+          
+          <p><strong>Просмотр информации профиля</strong></p>
+          <ol id="c8">
+            <li><b>С</b> переход на страницу со списком диалогов.</li>
+            <li><b>ВП</b> отображает информацию о профиле С.</li>
+            <li><b>ВП</b> отображает список диалогов с информацией о профилях собеседников.</li>
+          </ol>
+    
+        </details>
+        
+        <!-- Сценарии взаимодействия -->
+        <details>
+          <summary>Сценарии взаимодействия</summary>
+          <p><strong>Us</strong> &ndash; User.
+             <br>
+             <strong>Br</strong> &ndash; Browser.
+             <br>
+             <strong>DS</strong> &ndash; Data Storage.
+             <br>
+             <strong>S</strong> &ndash; Server.</p>
+    
+          <p><strong>Вход в систему</strong></p>
+          <ol id="l0">
+            <li><b>Us</b> просит <b>Br</b> запустить web-приложение.</li>
+            <li><b>Br</b> отображает стартовую страницу веб-приложения.</li>
+            <li><b>Br</b> проверяет наличие JWT токена в <b>DS</b>.</li>
+            <li><b>Br</b> Перенаправляет <b>Us</b> на страницу авторизации/со списком диалогов.</li>
+          </ol>
+          
+          <p><strong>Регистрация аккаунта</strong></p>
+          <ol id="l1">
+            <li><b>Us</b> работает с изображением, номером телефона, именем, фамилией, паролем и повтором пароля паролем.</li>
+            <li><b>Us</b> просит <b>Br</b> зарегистрировать аккаунт.</li>
+            <li><b>Br</b> просит <b>S</b> зарегистрировать аккаунт.</li>
+            <li><b>S</b> подтверждает регистрирует аккаунт и отправляет ответ <b>Br</b>.</li>
+            <li><b>Br</b> просит <b>DS</b> сохранить номер телефона и JWT токен.</li>
+            <li><b>Br</b> перенаправляет <b>DS</b> на страницу со списком диалогов.</li>
+          </ol>
+
+          <p><strong>Авторизация в аккаунт</strong></p>
+          <ol id="l2">
+            <li><b>Us</b> работает с номером телефона и паролем.</li>
+            <li><b>Us</b> просит <b>Br</b> войти в аккаунт.</li>
+            <li><b>Br</b> просит <b>S</b> подтвердить актуальность данных <b>Us</b>.</li>
+            <li><b>S</b> подтверждает актуальность данных и отправляет ответ <b>Br</b>.</li>
+            <li><b>Br</b> просит <b>DS</b> сохранить номер телефона и JWT токен.</li>
+            <li><b>Br</b> перенаправляет <b>Us</b> на страницу со списком диалогов.</li>
+          </ol>
+          
+          <p><strong>Просмотр списка чатов</strong></p>
+          <ol id="l3">
+            <li><b>Br</b> просит <b>DS</b> предоставить номер телефона и JWT токен.</li>
+            <li><b>Br</b> просит <b>S</b> предоставить список чатов данного <b>Us</b>.</li>
+            <li><b>Br</b> обновляет содержимое списка диалогов.</li>
+          </ol>
+          
+          <p><strong>Создание чата</strong></p>
+          <ol id="l4">
+            <li><b>Us</b> просит <b>Br</b> отобразить форму добавления диалога.</li>
+            <li><b>Us</b> работает с номером телефона собеседника.</li>
+            <li><b>Us</b> просит <b>Br</b> создать диалог.</li>
+            <li><b>Br</b> просит <b>S</b> создать диалог.</li>
+            <li><b>S</b> отправляе обновленный список диалогов <b>Br</b>.</li>
+            <li><b>Br</b> обновляет содержимое списка диалогов.</li>
+          </ol>
+                
+          <p><strong>Просмотр сообщений</strong></p>
+          <ol id="l5">
+            <li><b>Us</b> выбирает диалог.</li>
+            <li><b>Us</b> просит <b>Br</b> отобразить страницу с выбраным диалогом.</li>
+            <li><b>Br</b> перенаправляет <b>Us</b> на страницу диалога.</li>
+            <li><b>Br</b> просит <b>S</b> отправить список сообщений диалога.</li>
+            <li><b>S</b> отправляет <b>Br</b> список сообщений диалога.</li>
+            <li><b>Br</b> обновляет список сообщений диалога.</li>
+          </ol>
+          
+          <p><strong>Отправка сообщений</strong></p>
+          <ol id="l6">
+            <li><b>Us</b> выбирает диалог.</li>
+            <li><b>Us</b> просит <b>Br</b> отобразить страницу с выбраным диалогом.</li>
+            <li><b>Br</b> перенаправляет <b>Us</b> на страницу диалога.</li>
+            <li><b>Br</b> просит <b>S</b> отправить список сообщений диалога.</li>
+            <li><b>S</b> отправляет <b>Br</b> список сообщений диалога.</li>
+            <li><b>Br</b> обновляет список сообщений диалога.</li>
+            <li><b>Us</b> работает с текстом сообщения.</li>
+            <li><b>Us</b> просит <b>Br</b> отправить сообщение.</li>
+            <li><b>Br</b> просит <b>S</b> создать новое сообщение.</li>
+            <li><b>S</b> создает новое сообщение.</li>
+            <li><b>S</b> отправляет <b>Br</b> обновленный список сообщений диалога.</li>
+            <li><b>Br</b> обновляет список сообщений диалога.</li>
+          </ol>
+          
+          <p><strong>Выход из аккаунта</strong></p>
+          <ol id="l7">
+            <li><b>Us</b> просит <b>Br</b> выйти из аккаунта.</li>
+            <li><b>Br</b> просит <b>S</b> закрыть соединение.</li>
+            <li><b>Br</b> просит <b>DS</b> удалить все данные.</li>
+            <li>Сценарий взаимодействия «Вход в систему».</li>
+          </ol>
+          
+          <p><strong><p><strong>Просмотр информации профиля</strong></p></strong></p>
+          <ol id="l8">
+            <li><b>Br</b> просит <b>S</b> отправить данные <b>Us</b>.</li>
+            <li><b>S</b> отправляет <b>Br</b> данные <b>Us</b>.</li>
+            <li><b>Br</b> обновляет данные <b>Us</b>.</li>
+          </ol>
+        </details>
+        
+        <!-- Сценарии выполнения -->
+        <details>
+          <summary>Сценарии выполнения</summary>
+          <h3>startPage</h3>
+          <pre>
+            <strong>init()</strong>  
+            checkForToken()
+          </pre>
+
+          <h3>auth</h3>
+          <pre>
+          <strong>init()</strong>  
+              checkForToken()
+          </pre>
+          <pre id="p1">
+            <strong>form.onsubmit </strong>
+            preSend()
+          </pre>
+          <pre id="p2">
+            <strong>button.login.onclick </strong>
+            preSend()
+          </pre>
+          <pre id="p3">
+            <strong>input.phone.oninput </strong>
+            phoneHandler()
+          </pre>
+          
+          <h3>reg</h3>
+          <pre>
+          <strong>init()</strong>  
+              checkForToken()
+          </pre>
+          <pre id="p1">
+            <strong>form.onsubmit </strong>
+            preSend()
+          </pre>
+          <pre id="p2">
+            <strong>button.registration.onclick </strong>
+            preSend()
+          </pre>
+          <pre id="p3">
+            <strong>input.phone.oninput </strong>
+            phoneHandler()
+          </pre>
+          <pre id="p3">
+            <strong>input.name.oninput </strong>
+            nameAndSurnameHandler()
+          </pre>
+          <pre id="p3">
+            <strong>input.surname.oninput </strong>
+            nameAndSurnameHandler()
+          </pre>
+          <pre id="p3">
+            <strong>img.onclick </strong>
+            pictUpload()
+          </pre>
+
+          <h3>messages</h3>
+          <pre>
+          <strong>init()</strong>  
+              checkForToken()
+          </pre>
+          <pre id="p1">
+            <strong>dialog.onclick </strong>
+            goToDialog()
+          </pre>
+          <pre id="p2">
+            <strong>button.plus.onclick </strong>
+            createNewDialog()
+          </pre>
+          <pre id="p3">
+            <strong>button.logout.onclick </strong>
+            logout()
+          </pre>
+          <pre id="p4">
+            <strong>ws.onopen </strong>
+            getDialogs()
+          </pre>
+          <pre id="p5">
+            <strong>ws.onclose </strong>
+            console.log(e)
+          </pre>
+          <pre id="p6">
+            <strong>ws.onmessage </strong>
+            onGetDialogs(data.payload)|localStorage.setItem("token", data.payload)|getDialogs()|console.log(e)
+          </pre>
+
+          <h3>dialog</h3>
+          <pre>
+          <strong>init()</strong>  
+              readReq();
+              checkForToken()
+          </pre>
+          <pre id="p1">
+            <strong>form.onsubmit </strong>
+            sendMessage()
+          </pre>
+          <pre id="p2">
+            <strong>button.bakc.onclick </strong>
+            goBack()
+          </pre>
+          <pre id="p3">
+            <strong>textarea.oninpur </strong>
+            onInput()
+          </pre>
+          <pre id="p4">
+            <strong>ws.onopen </strong>
+            getDialogs()
+          </pre>
+          <pre id="p5">
+            <strong>ws.onclose </strong>
+            console.log(e)
+          </pre>
+          <pre id="p6">
+            <strong>ws.onmessage </strong>
+            onGetDialogs(data.payload)|localStorage.setItem("token", data.payload)|renderNewMessage(data.payload.newMessage)
+          </pre>
+        </details>
+        
+        <!-- Реализация -->
+        <details open>
+          <h3>Реализация:</h3>
+          <a href="https://nikitadumkin.fun/WebMessenger/startPage">Ссылка на рабочий мессенджер, размещенный на vps</a> <br>
+          <a href="staticFiles/CorpMessenger.zip" download="">Скачать архив с веб-приложением и сервером</a> <br>
+          <a href="startPage/index.html">Ссылка на веб-приложение(веб-приложение запускается локально, при этом сервер работает на VPS те удаленно)</a>         
+        </details>
+        
+        <details>
+          <summary>Результаты проверки</summary>
+          <p>В приложении реализованы все заявленные варианты использования.</p>
+        </details>
+      </body>
+</html>
