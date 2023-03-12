@@ -117,6 +117,8 @@ function fetchUserData(){
     const phone = localStorage.getItem("phone");
     const token = localStorage.getItem("token");
 
+    document.querySelector("#userPhoneForRedirection").href = "../user/index.html?user_phone="+phone;
+
     fetch(url+ "/api/userData?phone=" + phone,{
         headers: {
             Authorization: "Bearer " + token
@@ -296,6 +298,9 @@ function renderNewMessage(message){
 
 async function fetchDialogUserData(phone){
     const token = localStorage.getItem("token");
+
+    document.querySelector("#randomId").href = "../user/index.html?user_phone="+phone;
+
     fetch(url+ "/api/userData?phone=" + phone,{
         headers: {
             Authorization: "Bearer " + token

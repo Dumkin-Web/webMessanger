@@ -57,6 +57,8 @@ function fetchUserData(){
     const phone = localStorage.getItem("phone");
     const token = localStorage.getItem("token");
 
+    document.querySelector("#userPhoneForRedirection").href = "../user/index.html?user_phone="+phone;
+
     fetch(url+ "/api/userData?phone=" + phone,{
         headers: {
             Authorization: "Bearer " + token

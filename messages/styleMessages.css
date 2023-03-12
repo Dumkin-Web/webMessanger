@@ -4,6 +4,10 @@
     font-family: 'Noto Sans', sans-serif;
 }
 
+a{
+    text-decoration: none !important;
+}
+
 body{
     padding: 0 25%;
     padding-top: 100px;

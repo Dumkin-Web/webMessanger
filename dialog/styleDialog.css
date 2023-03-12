@@ -4,6 +4,10 @@
     font-family: 'Noto Sans', sans-serif;
 }
 
+a{
+    text-decoration: none !;
+}
+
 body{
     padding: 0 25%;
     padding-top: 100px;
@@ -143,9 +147,16 @@ form button:hover{
     text-decoration: underline;
 }
 
-#dialogHeader img{
+#randomId{
     position: absolute;
     right: 15px;
+    width: 34px;
+    height: 34px;
+}
+
+#dialogHeader img{
+    /* position: absolute; */
+    /* right: 15px; */
     background-color: white;
     width: 34px;
     height: 34px;
